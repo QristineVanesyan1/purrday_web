@@ -1,17 +1,53 @@
-# purrday_web
+# Purrday website (Flutter web)
 
-A new Flutter project.
+Responsive landing page for Purrday, built from the website boards in the
+design canvas. Compact (mobile) layout below 960 px wide, desktop above.
 
-## Getting Started
+## Run
 
-This project is a starting point for a Flutter application.
+```
+flutter pub get
+flutter run -d chrome
+```
 
-A few resources to get you started if this is your first Flutter project:
+Needs Flutter 3.27 or newer (uses `Row.spacing` and `Color.withValues`).
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+If `flutter run` asks for platform folders, run `flutter create . --platforms=web`
+once. It keeps the existing `lib/`, `web/index.html` and assets.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Build
+
+```
+flutter build web
+```
+
+Upload the contents of `build/web/` to any static host. If you deploy under a
+sub-path, pass `--base-href /your-path/`.
+
+## Structure
+
+```
+lib/
+  main.dart, app.dart          app entry and MaterialApp
+  theme/                       palette, spacing, type scale, light + dark themes,
+                               mood enum, asset paths
+  website/
+    website_page.dart          scroll view, nav-to-section links, mobile drawer
+    layout/                    breakpoint, LayoutScope, SectionContainer, text sizes
+    sections/                  nav, hero, intro, features, packs, pricing,
+                               entries, CTA, footer
+    widgets/                   phone frame + Home/Report screen mocks, feature
+                               visuals, buttons, chips, mood faces
+assets/images/                 mood faces, full cat illustrations, app icon, hero art
+```
+
+## Things to replace
+
+- Store badges are drawn placeholders (`widgets/store_badges.dart`). Use the
+  official App Store / Google Play artwork and add the links.
+- Contact email, social links, Terms and Privacy are placeholders in
+  `sections/footer_section.dart`.
+- The "A peek inside" entries are sample content.
+- Fonts (Fraunces, Nunito) load from Google Fonts at runtime. To bundle them,
+  add the font files and replace the `GoogleFonts` calls in
+  `theme/app_theme.dart`.

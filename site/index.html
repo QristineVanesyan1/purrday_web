@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Purrday — Mood diary for cat people</title>
+<meta name="description" content="Pick a cat that matches your mood, jot a few words and watch your month fill up with tiny faces.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Reusable cat face -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="cat" viewBox="0 0 100 100">
+    <path d="M18 44 L22 14 L42 28 Q50 26 58 28 L78 14 L82 44 Q90 58 80 76 Q66 92 50 92 Q34 92 20 76 Q10 58 18 44Z" fill="currentColor" stroke="#2b2a26" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M26 24 L34 30 M74 24 L66 30" stroke="#2b2a26" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="36" cy="55" r="3.5" fill="#2b2a26"/><circle cx="64" cy="55" r="3.5" fill="#2b2a26"/>
+    <path d="M46 64 L54 64 L50 69Z" fill="#e9a59b" stroke="#2b2a26" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M50 69 Q50 74 44 74 M50 69 Q50 74 56 74" fill="none" stroke="#2b2a26" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M22 62 L8 59 M22 68 L9 70 M78 62 L92 59 M78 68 L91 70" stroke="#2b2a26" stroke-width="2.4" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="apple" viewBox="0 0 24 24"><path fill="currentColor" d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-1-2.5-3.9zM14.2 5.7c.6-.8 1.1-1.8.9-2.9-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.8-.9 2.8 1 .1 2-.5 2.7-1.3z"/></symbol>
+  <symbol id="play" viewBox="0 0 24 24"><path fill="currentColor" d="M5 3l15 9-15 9z"/></symbol>
+</svg>
+
+<header class="nav">
+  <div class="container nav__in">
+    <a class="brand" href="#top"><span class="brand__icon"><svg><use href="#cat"/></svg></span>Purrday</a>
+    <nav class="nav__links" aria-label="Main">
+      <a class="active" href="#top">Home</a><a href="#features">Features</a><a href="#cats">Cats</a><a href="#plus">Plus</a><a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav__right">
+      <button class="lang" type="button">English <span>⌄</span></button>
+      <a class="btn btn--sm" href="#download">Download</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero__in">
+    <div class="hero__copy">
+      <p class="eyebrow">Mood diary for cat people</p>
+      <h1>Every day, one little cat.</h1>
+      <p class="lead">Pick a cat that matches your mood, jot a few words and watch your month fill up with tiny faces.</p>
+      <div class="stores">
+        <a class="store" href="#"><svg><use href="#apple"/></svg><span><small>Download on the</small>App Store</span></a>
+        <a class="store" href="#"><svg><use href="#play"/></svg><span><small>Get it on</small>Google Play</span></a>
+      </div>
+      <p class="fine">Free on iOS and Android · Purrday Plus free for 7 days</p>
+    </div>
+    <div class="hero__phones" aria-hidden="true">
+      <div class="blob blob--blue"></div>
+      <div class="phone phone--back">
+        <div class="phone__hd"><b>Report</b><small>October 2026</small></div>
+        <div class="tabs"><span>Week</span><span class="on">Month</span><span>Year</span></div>
+        <div class="card-mini"><svg class="c-sm" style="color:#d9e6d2"><use href="#cat"/></svg><div><small>Mostly</small><b>Calm</b><small>3 of 6 logged days</small></div></div>
+        <div class="mix"><small>Mood mix</small>
+          <p>Joyful<i style="--w:60%"></i><em>2</em></p><p>Calm<i style="--w:100%"></i><em>3</em></p>
+          <p>Meh<i style="--w:20%"></i><em>1</em></p><p>Sad<i style="--w:10%"></i><em>0</em></p><p>Grumpy<i style="--w:10%"></i><em>0</em></p>
+        </div>
+        <div class="phone__nav"><span></span><span></span><span class="fab"></span><span></span><span></span></div>
+      </div>
+      <div class="phone phone--front">
+        <div class="phone__hd cal-hd"><span class="brand__icon sm"><svg><use href="#cat"/></svg></span> <b>Purrday</b></div>
+        <div class="month">‹ <b>October 2026</b> ›</div>
+        <div class="cal" id="cal"></div>
+        <div class="entry-pill"><svg class="c-sm" style="color:#e5ddc4"><use href="#cat"/></svg><span><b>Oct 6</b><small>Tuesday · Grumpy</small></span><em>›</em></div>
+        <div class="phone__nav"><span></span><span></span><span class="fab"></span><span></span><span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIMPLE -->
+<section class="section center">
+  <div class="container narrow">
+    <p class="eyebrow">Simple on purpose</p>
+    <h2>The simplest way to remember your day</h2>
+    <p class="sub">Meet Purrday, where you record your day with one cat and a few words. Making journaling a habit has never been easier.</p>
+    <ul class="moods">
+      <li><span class="mood" style="--c:#efd88a"><svg><use href="#cat"/></svg></span>Joyful</li>
+      <li><span class="mood" style="--c:#e6efdc"><svg><use href="#cat"/></svg></span>Calm</li>
+      <li><span class="mood" style="--c:#e9e6e0"><svg><use href="#cat"/></svg></span>Meh</li>
+      <li><span class="mood" style="--c:#b7cbe9"><svg><use href="#cat"/></svg></span>Sad</li>
+      <li><span class="mood" style="--c:#d9b9a0"><svg><use href="#cat"/></svg></span>Grumpy</li>
+    </ul>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section center" id="features">
+  <div class="container">
+    <p class="eyebrow">Features</p>
+    <h2>Small taps, big picture</h2>
+    <p class="sub">Everything you need to keep a diary you actually keep.</p>
+    <div class="grid3">
+      <article class="card">
+        <div class="demo demo--row">
+          <span class="dot" style="--c:#efd88a"><svg><use href="#cat"/></svg></span><span class="dot" style="--c:#e6efdc"><svg><use href="#cat"/></svg></span><span class="dot" style="--c:#e9e6e0"><svg><use href="#cat"/></svg></span><span class="dot" style="--c:#b7cbe9"><svg><use href="#cat"/></svg></span><span class="dot" style="--c:#d9b9a0"><svg><use href="#cat"/></svg></span>
+        </div>
+        <h3>Record in seconds</h3><p>Pick a cat, jot a few words. Your day is logged in a few taps.</p>
+      </article>
+      <article class="card">
+        <div class="demo demo--chips">
+          <span class="chip">Weather</span><span class="chip">Reading</span><span class="chip">Walking</span>
+          <span class="chip on">Calm</span><span class="chip">Coffee</span><span class="chip ghost">+ Add</span>
+        </div>
+        <h3>Fully customizable</h3><p>Edit the blocks and icons to fit your lifestyle.</p>
+      </article>
+      <article class="card">
+        <div class="demo demo--fan">
+          <span class="tile t1" style="--c:#efd88a"><svg><use href="#cat"/></svg></span>
+          <span class="tile t3" style="--c:#b7cbe9"><svg><use href="#cat"/></svg></span>
+          <span class="tile t2" style="--c:#d9e6d2"><svg><use href="#cat"/></svg></span>
+        </div>
+        <h3>Decorate with cat packs</h3><p>Swap in cats that fit your vibe and make the calendar yours.</p>
+      </article>
+      <article class="card">
+        <div class="demo demo--bars">
+          <p>Calm<i style="--w:100%"></i></p><p>Joyful<i style="--w:35%;--b:#efd88a"></i></p><p>Grumpy<i style="--w:25%;--b:#efd88a"></i></p>
+        </div>
+        <h3>Track your mood shifts</h3><p>See how your mood is shaped by parts of your day.</p>
+      </article>
+      <article class="card">
+        <div class="demo demo--dots" id="dots"></div>
+        <h3>Find your patterns</h3><p>Personal reports reveal the rhythm of your weeks and months.</p>
+      </article>
+      <article class="card">
+        <div class="demo demo--note"><div class="note"><small>TUESDAY, OCTOBER 6</small><b>A quiet moment is still a moment.</b></div></div>
+        <h3>A little paw every day</h3><p>A small, kind note is waiting for you each morning.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CATS -->
+<section class="section center" id="cats">
+  <div class="container">
+    <p class="eyebrow">Cat packs</p>
+    <h2>Pick a cat pack for every mood</h2>
+    <p class="sub">Decorate your calendar with cats that fit your vibe.</p>
+    <div class="grid4">
+      <article class="pack"><div class="pack__img" style="--bg:#3d3724"><span class="big" style="--c:#efd88a"><svg><use href="#cat"/></svg></span></div><div class="pack__row"><div><b>Cozy Cats</b><small>5 cats</small></div><span class="tag tag--free">Free</span></div></article>
+      <article class="pack"><div class="pack__img" style="--bg:#27304a"><span class="big" style="--c:#b7cbe9"><svg><use href="#cat"/></svg></span></div><div class="pack__row"><div><b>Space Cats</b><small>5 cats</small></div><span class="tag">$1.99</span></div></article>
+      <article class="pack"><div class="pack__img" style="--bg:#3d2a28"><span class="big" style="--c:#f3ece0"><svg><use href="#cat"/></svg></span></div><div class="pack__row"><div><b>Sushi Cats</b><small>5 cats</small></div><span class="tag">$1.99</span></div></article>
+      <article class="pack"><div class="pack__img" style="--bg:#26332a"><span class="big" style="--c:#d9e6d2"><svg><use href="#cat"/></svg></span></div><div class="pack__row"><div><b>Winter Cats</b><small>5 cats</small></div><span class="tag">$1.99</span></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- PLUS -->
+<section class="section center" id="plus">
+  <div class="container narrow2">
+    <div class="crown" aria-hidden="true">♛</div>
+    <p class="eyebrow">Purrday Plus</p>
+    <h2>Choose the plan that fits you best</h2>
+    <p class="sub">Completely free for 7 days. Cancel anytime.</p>
+    <div class="plans">
+      <article class="plan">
+        <h3>Free</h3>
+        <p class="price">$0<small> forever</small></p>
+        <p class="save">Everything you need to start</p>
+        <ul>
+          <li>Custom blocks<span>✓</span></li><li>Basic analysis<span>✓</span></li>
+          <li>In-depth analysis<span class="x"></span></li><li>Ad-free<span class="x"></span></li>
+          <li>Photos per day<span>1</span></li><li>Device sync<span class="x"></span></li><li>Cat packs<span>1 free pack</span></li>
+        </ul>
+        <a class="btn btn--ghost" href="#download">Get Purrday</a>
+      </article>
+      <article class="plan plan--pop">
+        <span class="badge">POPULAR</span>
+        <h3>Purrday Plus</h3>
+        <p class="price">$39.99<small> /year <s>$89.88</s></small></p>
+        <p class="save">Save 53% · or $6.99/month · 7 days free</p>
+        <ul>
+          <li>Custom blocks<span>✓</span></li><li>Basic analysis<span>✓</span></li>
+          <li>In-depth analysis<span>✓</span></li><li>Ad-free<span>✓</span></li>
+          <li>Photos per day<span>3</span></li><li>Device sync<span>All devices</span></li><li>Cat packs<span>All packs</span></li>
+        </ul>
+        <a class="btn btn--block" href="#download">Begin free trial</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ENTRIES -->
+<section class="section center" id="faq">
+  <div class="container">
+    <p class="eyebrow">A peek inside</p>
+    <h2>Little entries, big picture</h2>
+    <p class="sub">Sample entries from a Purrday calendar.</p>
+    <div class="grid3 entries">
+      <article class="entry"><header><span class="dot" style="--c:#efd88a"><svg><use href="#cat"/></svg></span><div><b>Oct 1</b><small>Joyful</small></div></header><p>Cat café with friends. Best latte of the year.</p><div class="tags"><span>Friends</span><span>Café</span></div></article>
+      <article class="entry"><header><span class="dot" style="--c:#e6efdc"><svg><use href="#cat"/></svg></span><div><b>Oct 5</b><small>Calm</small></div></header><p>A long walk and a quiet evening with a book.</p><div class="tags"><span>Walking</span><span>Reading</span></div></article>
+      <article class="entry"><header><span class="dot" style="--c:#d9b9a0"><svg><use href="#cat"/></svg></span><div><b>Oct 6</b><small>Grumpy</small></div></header><p>Back-to-back meetings. Not my day.</p><div class="tags"><span>Work</span></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="download">
+  <div class="container cta__in">
+    <div>
+      <p class="eyebrow">Get Purrday</p>
+      <h2>Start journaling today!</h2>
+      <p class="sub left">Download free on iOS and Android.</p>
+      <div class="stores">
+        <a class="store" href="#"><svg><use href="#apple"/></svg><span><small>Download on the</small>App Store</span></a>
+        <a class="store" href="#"><svg><use href="#play"/></svg><span><small>Get it on</small>Google Play</span></a>
+      </div>
+    </div>
+    <div class="cta__art" aria-hidden="true">
+      <div class="blob blob--blue2"></div>
+      <div class="scene">
+        <div class="sun"></div>
+        <svg class="bigcat" style="color:#f6f1e7"><use href="#cat"/></svg>
+        <svg class="leaf" viewBox="0 0 60 90"><path d="M30 90 V30" stroke="#6f8b5c" stroke-width="3" fill="none"/><path d="M30 60 Q8 55 6 30 Q28 32 30 60Z M30 45 Q52 40 54 15 Q32 18 30 45Z" fill="#a8c08a" stroke="#2b2a26" stroke-width="2"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container footer__in">
+    <div class="footer__brand">
+      <a class="brand" href="#top"><span class="brand__icon"><svg><use href="#cat"/></svg></span>Purrday</a>
+      <p>Mood diary for cat people.<br>Every day counts.</p>
+      <small>© 2026 Purrday. All rights reserved.</small>
+    </div>
+    <div><h4>Explore</h4><a href="#top">Home</a><a href="#faq">FAQ</a><a href="#">Blog</a></div>
+    <div><h4>Legal</h4><a href="#">Terms of Use</a><a href="#">Privacy Policy</a></div>
+    <div><h4>Contact us</h4><a href="mailto:hello@purrday.app">hello@purrday.app</a><a href="#">Instagram</a> · <a href="#">YouTube</a> · <a href="#">Pinterest</a></div>
+  </div>
+</footer>
+
+<script>
+  // Calendar mockup
+  const moods = ['#efd88a','#e6efdc','#e9e6e0','#b7cbe9','#d9b9a0'];
+  const cal = document.getElementById('cal');
+  if (cal) {
+    'SMTWTFS'.split('').forEach(d => cal.insertAdjacentHTML('beforeend', `<small>${d}</small>`));
+    const offset = 4; // Oct 2026 starts Thursday
+    for (let i = 0; i < offset; i++) cal.insertAdjacentHTML('beforeend', '<span></span>');
+    for (let d = 1; d <= 31; d++) {
+      const logged = d <= 6;
+      cal.insertAdjacentHTML('beforeend', logged
+        ? `<span class="d on" style="--c:${moods[(d*2)%5]}"><svg><use href="#cat"/></svg></span>`
+        : `<span class="d">${d}</span>`);
+    }
+  }
+  // Patterns dot grid
+  const dots = document.getElementById('dots');
+  if (dots) {
+    const pal = ['#efd88a','#b7cbe9','#a8c08a','#d9b9a0','#e9e6e0'];
+    for (let i = 0; i < 35; i++) dots.insertAdjacentHTML('beforeend', `<i style="background:${pal[(i*3+(i>>2))%5]}"></i>`);
+  }
+</script>
+</body>
+</html>
