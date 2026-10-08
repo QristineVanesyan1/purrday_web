@@ -28,7 +28,7 @@ class StoreBadge extends StatelessWidget {
         cursor: onTap == null ? MouseCursor.defer : SystemMouseCursors.click,
         child: GestureDetector(
           onTap: onTap,
-          child: Image.asset(asset, height: height, fit: BoxFit.contain),
+          child: Image.asset(asset, height: height, fit: BoxFit.fitHeight),
         ),
       ),
     );
